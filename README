@@ -6,3 +6,42 @@ Given [[10,20],[5,10],[5,20],[0,5]]
 would return 2.
 
 [Python Solution O(nlogn)]
+
+Explaination of the Algorithm:
+	[[10,20],[5,10],[5,20],[0,5]]
+
+The interval list is first sorted based upon the starting times of the interval, 
+
+	[[0, 5], [5, 10], [5, 20], [10, 20]]
+
+heap = [], stores the ending time of the intervals
+
+Take the first interval [0,5]. Now since the heap is empty i.e, no room 
+has been allocated, add the end time i.e. 5 to the heap
+
+now heap = [5]
+
+Next take the second interval, [5,10], 
+ We see that the starting time of the second interval coincides with the ending
+ time of the previous interval, so that particular room can be assigned to the meeting.
+
+ So we remove the previous ending time and add the new ending time, We use  heapreplace() for this.
+
+ now heap = [10]
+
+ Next interval is [5,20]
+
+ We see that the starting point of this interval is smaller than the ending point, thus we need
+  a different meeting room. Thus we push the ending time of this interval to the heap.
+
+  now heap = [10,20]
+
+  Next interval is [10,20]
+
+  We see that this interval can replace the first meeting room whose ending time is 10.
+  So essentially we check whether the starting time of the new interval is greater of equal to the 
+  smallest value in the heap. So we dont need to assign a new room.
+
+  now heap = [20,20]
+
+  Thus the final length of the heap, is the number of meeting rooms required.
