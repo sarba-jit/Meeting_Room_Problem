@@ -1,0 +1,8 @@
+ Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei), find the minimum number of conference rooms required.
+
+For example,
+Given [[10,20],[5,10],[5,20],[0,5]]
+
+would return 2.
+
+[Python Solution O(nlogn)]
